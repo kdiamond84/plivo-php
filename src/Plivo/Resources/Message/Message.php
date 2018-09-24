@@ -9,6 +9,7 @@ use Plivo\Resources\Resource;
 /**
  * Class Message
  * @package Plivo\Resources\Message
+ * @property string $errorCode
  * @property string $from
  * @property string $to
  * @property string $messageDirection
@@ -35,6 +36,7 @@ class Message extends Resource
         parent::__construct($client);
 
         $this->properties = [
+            'errorCode' => $response['error_code'],
             'from' => $response['from_number'],
             'to' => $response['to_number'],
             'messageDirection' => $response['message_direction'],
